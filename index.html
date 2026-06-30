@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Local Chat - Coder Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-dot"></div>
+                <h2>IA Local Hub</h2>
+            </div>
+            
+            <div class="config-group">
+                <h3>Parámetros de API</h3>
+                
+                <div class="input-field">
+                    <label for="endpoint">Endpoint URL</label>
+                    <input type="text" id="endpoint" value="http://192.168.78.227:8000/v1/chat/completions">
+                </div>
+
+                <div class="input-field">
+                    <label for="max-tokens">Max Tokens (<span id="token-val">150</span>)</label>
+                    <input type="range" id="max-tokens" min="10" max="2048" value="150" step="5">
+                </div>
+                
+                <div class="input-field">
+                    <label for="temperature">Temperatura (<span id="temp-val">0.2</span>)</label>
+                    <input type="range" id="temperature" min="0" max="1.5" value="0.2" step="0.1">
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <p>Hardware: AMD FX-6300</p>
+                <p>Status: <span class="status-online">Online</span></p>
+            </div>
+        </aside>
+
+        <main class="chat-container">
+            <header class="chat-header">
+                <div class="model-info">
+                    <h1>Qwen 2.5 Coder 3B</h1>
+                    <p>Cuantización Q4_K_M activo en red local</p>
+                </div>
+                <div id="loader" class="loader-j hidden">J</div>
+            </header>
+
+            <div id="chat-messages" class="chat-messages">
+                <div class="message assistant-msg">
+                    <div class="avatar">AI</div>
+                    <div class="text">¡Hola! Tu servidor de IA está conectado. Modifica los parámetros de la izquierda y hazme cualquier pregunta técnica o de Python.</div>
+                </div>
+            </div>
+
+            <footer class="chat-input-area">
+                <div class="input-wrapper">
+                    <textarea id="user-input" placeholder="Escribe un mensaje aquí... (Presiona Enter para enviar)"></textarea>
+                    <button id="send-btn" title="Enviar">
+                        <svg viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="currentColor" d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
+                        </svg>
+                    </button>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
